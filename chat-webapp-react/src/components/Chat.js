@@ -10,8 +10,8 @@ import Messages from "../components/Messages";
 function Chat() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([
-    {username:'Abhay' , text:'Loves Heena'},
-    {username:'Heena' , text:'Loves Abhay'}
+    // {username:'Abhay' , text:'Loves Heena'},
+    // {username:'Heena' , text:'Loves Abhay'}
   ]);
   const [username, setUsername] = useState("");
 
@@ -49,7 +49,7 @@ function Chat() {
       </form>
 
       {messages.map((msg) => {
-        return <Messages username={msg.username}  text={msg.text} />;
+        return <Messages username={username}  msg={msg} />;
       })}
     </Container>
   );
