@@ -7,6 +7,7 @@ import { InputLabel } from "@material-ui/core";
 import { Input } from "@material-ui/core";
 import Messages from "../components/Messages";
 import db from "../Firebase";
+import firebase from 'firebase';
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -30,6 +31,17 @@ function Chat() {
 
   const sendMessage = (e) => {
     e.preventDefault();
+
+    db.collection('messages').add({
+
+      msg:input,
+      username:username,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+
+    })
+
+
+    
     
     setInput("");
   };
