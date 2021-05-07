@@ -8,6 +8,7 @@ import { Input } from "@material-ui/core";
 import Messages from "../components/Messages";
 import db from "../Firebase";
 import firebase from 'firebase';
+import FlipMove from "react-flip-move";
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -27,7 +28,7 @@ function Chat() {
     db.collection('messages')
     .orderBy('timestamp','desc')
     .onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc=> doc.data()))
+      setMessages(snapshot.docs.map(doc => ({id:doc.id , msg:doc.data()} )))
     })
 
   },[])
@@ -67,9 +68,11 @@ function Chat() {
         </FormControl>
       </form>
 
-      {messages.map((msg) => {
-        return <Messages username={username} msg={msg} />;
+     <FlipMove>
+     {messages.map( ({id,msg}) => {
+        return <Messages key={id}  username={username} msg={msg} />;
       })}
+     </FlipMove>
     </Container>
   );
 }
