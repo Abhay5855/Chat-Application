@@ -6,6 +6,7 @@ import { FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
 import { Input } from "@material-ui/core";
 import Messages from "../components/Messages";
+import db from "../Firebase";
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -13,23 +14,27 @@ function Chat() {
     // {username:'Abhay' , text:'Loves Heena'},
     // {username:'Heena' , text:'Loves Abhay'}
   ]);
-  const [username, setUsername] = useState(""); 
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    setUsername(prompt("Enter your name"));
+  }, []);
 
 
- useEffect(() => {
-     
-  setUsername(prompt('Enter your name'))
- },[])
+  useEffect(() => {
 
-  
+    db.collection('messages').onSnapshot(snapshot => {
+      setMessages(snapshot.docs.map(doc=> doc.data))
+    })
+
+  },[])
 
   const sendMessage = (e) => {
     e.preventDefault();
-    setMessages([...messages, {username: username, text:input}]);
+    setMessages([...messages, { username: username, text: input }]);
     setInput("");
   };
 
- 
   return (
     <Container>
       <form>
@@ -49,7 +54,7 @@ function Chat() {
       </form>
 
       {messages.map((msg) => {
-        return <Messages username={username}  msg={msg} />;
+        return <Messages username={username} msg={msg} />;
       })}
     </Container>
   );
