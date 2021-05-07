@@ -30,7 +30,7 @@ function Chat() {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    setMessages([...messages, { username: username, text: input }]);
+    
     setInput("");
   };
 
