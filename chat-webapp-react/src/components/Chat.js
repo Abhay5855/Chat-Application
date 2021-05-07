@@ -13,7 +13,7 @@ function Chat() {
     // {username:'Abhay' , text:'Loves Heena'},
     // {username:'Heena' , text:'Loves Abhay'}
   ]);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(""); 
 
 
  useEffect(() => {
