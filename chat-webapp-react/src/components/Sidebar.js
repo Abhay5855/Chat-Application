@@ -9,7 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import CollectionsIcon from '@material-ui/icons/Collections';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import db from '../Firebase';
-import { auth } from "firebase/app";
+
 
 function Sidebar() {
 
@@ -21,6 +21,7 @@ function Sidebar() {
 
     db.collection('rooms').onSnapshot(
       snapshot => {
+        console.log(snapshot.docs);
         setChannels(
           snapshot.docs.map(doc=> ({
 
