@@ -1,6 +1,7 @@
 import "./App.css";
 // import Chat from "./components/Chat";
 import Header from "./components/Header"
+import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         {/* Header */}
         < Header />
         {/* sidebar */}
+        < Sidebar />
         {/* react-router -> chat screen */}
          
               {/* <Chat /> */}
