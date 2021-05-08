@@ -1,18 +1,23 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
 
-const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyCIpwriIN9VHHb_X6C9VqDbGP8mtRno27g",
-    authDomain: "chat-application-2f127.firebaseapp.com",
-    projectId: "chat-application-2f127",
-    storageBucket: "chat-application-2f127.appspot.com",
-    messagingSenderId: "455779360995",
-    appId: "1:455779360995:web:21e6aa08b6eac2f979e5d6"
-  });
-  // Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBn5W3SA5Q0frAvxbF47PGC-NpKsPPDUxw",
+  authDomain: "slack-chat-app-2b374.firebaseapp.com",
+  projectId: "slack-chat-app-2b374",
+  storageBucket: "slack-chat-app-2b374.appspot.com",
+  messagingSenderId: "1086436863445",
+  appId: "1:1086436863445:web:a5798f9ea3ba0f9848615c"
+};
 
 
-  const db = firebaseApp.firestore();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-  export default db;
- 
+
+const db = firebaseApp.firestore();
+
+const auth = firebase.auth();
+
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
