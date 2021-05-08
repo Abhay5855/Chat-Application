@@ -1,13 +1,21 @@
 import "./App.css";
-import Chat from "./components/Chat";
+// import Chat from "./components/Chat";
+import Header from "./components/Header"
 import styled from "styled-components";
 function App() {
   return (
+
+    //BEM naming convention
     <div className="App">
       
         <Container>
+
+        {/* Header */}
+        < Header />
+        {/* sidebar */}
+        {/* react-router -> chat screen */}
          
-              <Chat />
+              {/* <Chat /> */}
             
         </Container>
      
