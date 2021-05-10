@@ -1,26 +1,29 @@
-.msg {
+.message {
 
-    padding:10px;
-    margin: 10px;
-    width:fit-content;
+    display: flex;
+    align-items: center;
+    padding-left:20px;
+    
+}
+
+.message > img {
+    height:60px;
+    width:60px;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 
-.message_card {
-
-    margin-left:auto;
-    text-align: left !important;
-    color:#bfbfbf;
-
+.message__timestamp {
+    color:#969292;
+    font-weight: 300;
+    font-size:13px;
 }
 
-.message_userCard {
 
-    background-color: rgb(88, 88, 185) !important;
-
-}
-
-.message_guessCard{
+.message__info {
+    padding-left:15px;
+    margin:0;
    
-    background: color #e9e9eb !important;
+   
 }
